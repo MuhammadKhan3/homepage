@@ -7,7 +7,7 @@ function App() {
   const [floorClicked,setfloorClicked]=useState("");
 
   return (
-    <div className='w-full min-h-full h-full '>
+    <div className='w-full h-full '>
      <Home  floor={floor} setFloor={setFloor} floorClicked={floorClicked} setfloorClicked={setfloorClicked} />    
       {/* <Routes >
       <Route path="/" element={    <Home/>}/>

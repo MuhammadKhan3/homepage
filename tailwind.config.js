@@ -151,7 +151,18 @@ module.exports = {
         }
 
 
-      ]
+      ],
+      'popup-heading':[
+       '79px',
+       {
+        fontFamily: 'Poppins',
+        fontSize: '79px',
+        fontWeight: '400',
+        lineHeight: '119px',
+        letterSpacing: '-0.025em',
+        textAlign: 'left',
+       }
+       ]
 
 
     },

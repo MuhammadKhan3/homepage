@@ -16,7 +16,7 @@ const Header = () => {
     const navigate=useNavigate();
   return (<>
   {/* sm:justify-start mb:justify-start */}
-            <div className='text-primary      flex flex-row   justify-around'>
+            <div className='text-primary      flex flex-row   justify-around mb:justify-between mt-1'>
                 <div className='flex flex-row justify-center items-center space-x-5'>
                     <div className='h-[51.09px] w-[180.9px] rounded-3xl border-[1px] border-floorText text-floorText cursor-pointer flex flex-row   items-center justify-center hover:bg-primary hover:text-white sm:hidden mb:hidden'>
                         Sign In

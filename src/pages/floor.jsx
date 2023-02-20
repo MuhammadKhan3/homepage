@@ -5,8 +5,8 @@ import Header from '../components/header'
 
 const Floor = ({setfloorClicked}) => {
   return (<>
-    <section className='h-full w-full flex flex-col '>
-        <div className='bg-header min-h-[30%]  space-y-8 pb-8'>
+    <section className='h-screen w-full flex flex-col '>
+        <div className='bg-header max-h-[30%]  space-y-8 pb-8'>
             <Header/>
             <FloorLevelLable setfloorClicked={setfloorClicked}/>
         </div>
