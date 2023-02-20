@@ -153,10 +153,10 @@ module.exports = {
 
       ],
       'popup-heading':[
-       '79px',
+       '48px',
        {
         fontFamily: 'Poppins',
-        fontSize: '79px',
+        fontSize: '48px',
         fontWeight: '400',
         lineHeight: '119px',
         letterSpacing: '-0.025em',

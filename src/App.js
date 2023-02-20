@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Floor from './pages/floor';
 import { useEffect, useState } from 'react';
 function App() {
-  const [floor,setFloor]=useState("");
+  const [floor,setFloor]=useState("Ground Floor");
   const [floorClicked,setfloorClicked]=useState("");
 
   return (

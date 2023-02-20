@@ -50,6 +50,7 @@ const FloorBottom = () => {
       totalPrice:63151875
     })
   }
+  
   return (<>
   <section className='w-full min-h-full flex flex-row  items-start sm:flex-col mb:flex-col'>
     <div className='bg-secondary  h-[100%]  max-h-full text-base w-[50%] mb:w-full sm:w-full md:w-full '>
