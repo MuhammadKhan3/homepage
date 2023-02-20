@@ -8,7 +8,6 @@ import vectorTwo from '../images/logo/VectorTwo.png';
 import vectorThree from '../images/logo/VectorThree.png';
 import vectorFour from '../images/logo/VectorFour.png';
 import vectorFive from '../images/logo/VectorFive.png';
-import Second from '../images/2nd.png'
 import {BsSearch} from 'react-icons/bs'
 import {AiOutlineMenu} from 'react-icons/ai'
 
@@ -23,8 +22,6 @@ const Home = (  {floor,setFloor,floorClicked,setfloorClicked}) => {
 if(floorClicked.length===0){
   return (
     <>
-  
-  
       <div 
       className='!h-screen w-full'
       style={{
@@ -33,9 +30,7 @@ if(floorClicked.length===0){
         backgroundRepeat:"no-repeat",
         backgroundPosition: "50% 50%"
         // backgroundOrigin
-      }}
-
-      >
+      }}>
         <div className='text-primary relative top-10 flex flex-row items-center w-full justify-between px-10'>
            <div className='flex flex-row justify-center items-center space-x-5'>
               <div className='h-[51.09px] w-[180.9px] rounded-3xl border-[1px] border-primary cursor-pointer flex flex-row   items-center justify-center hover:bg-primary hover:text-white sm:hidden mb:hidden'>
@@ -104,7 +99,7 @@ if(floorClicked.length===0){
         
         <div className='flex flex-row relative w-[85%]  left-[13%] md:left-[3%] lg-small:left-[6%] lg:left-[8%]   top-[30%]' onMouseLeave={()=>{setFloor("")}} >
             <div className={`bg-box cursor-pointer   w-fit h-fit     flex flex-col items-start absolute   left-[1%] p-3    ${floor.length>0 ? "block" : "hidden"}`} onClick={()=>{setfloorClicked(floor)}} >
-                        <h1 className="w-[105px]   relative   text-[#BB9692] text-[3rem]"><span className='text-[5rem]'>{floor}</span>nd</h1>
+                        <h1 className="w-[105px]   relative   text-[#BB9692] text-[3rem]"><span className='text-[3rem]'>{floor}</span></h1>
                         <div className='flex flex-col space-y-3  '>
                               <div className='text-[#606060] flex flex-row justify-around items-center  relative space-x-8'>
                                 <h1 className='text-extraLarge'>01</h1>
@@ -157,13 +152,13 @@ if(floorClicked.length===0){
             </div>
 
             <div className='relative  w-[50vw] md:w-[55.5vw] left-[22.5vw]  sm:[100vw]  md:left-[35%] lg-small:left-[33%] sm:left-[20%]  lg:left-[32.5%]  mb:left-[10%]  mb:w-[76vw]    h-full '>                
-                <div className={`flex flex-row items-center w-full h-full  relative top-5  ${floor==='2' ? 'visible':'invisible'}`} onClick={()=>{setfloorClicked("2")}}>
+                <div className={`flex flex-row items-center w-full h-full relative top-5 lg:top-[42px] xl:top-[52px]  ${floor==='2' ? 'visible':'invisible'}`} onClick={()=>{setfloorClicked("2")}}>
                   <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[31vw] mb:w-[100vw] sm:w-[100vw] md:w-[36.7vw]   visible      ${floor==='2' ? 'bg-blue-50 opacity-[0.3]' :''}`} onMouseEnter={()=>{console.log('hi..');setFloor("2")}} ></div>
                   <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
                   <span className='text-white ml-[3%]'>Second Floor</span>
                 </div>
 
-                <div className='flex flex-row items-center w-full h-full relative top-[45px]' onClick={()=>{setfloorClicked("1");}}>
+                <div className='flex flex-row items-center w-full h-full relative top-[30px] lg:top-[57px] xl:top-[70px]' onClick={()=>{setfloorClicked("1");}}>
                   <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[31vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='1' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('1') }} ></div>
                   {floor==='1' &&
                   <>
@@ -171,9 +166,41 @@ if(floorClicked.length===0){
                     <span className='text-white ml-[3%]'>First Floor</span>
                   </>
                   }
-  
-                </div>
             </div>
+            
+            <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[68px] xl:top-[95px]' onClick={()=>{setfloorClicked("mazen");}}>
+              <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[31vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='mazen' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('mazen') }} ></div>
+              {floor==='mazen' &&
+              <>
+                <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
+                <span className='text-white text-[10px] ml-[3%]'>Mazen</span>
+              </>
+              }
+            </div>
+
+            <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[70px] xl:top-[110px]' onClick={()=>{setfloorClicked("Ground Floor");}}>
+              <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[30vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='Ground Floor' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('Ground Floor') }} ></div>
+              {floor==='Ground Floor' &&
+              <>
+                <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
+                <span className='text-white ml-[3%]'>Ground Floor</span>
+              </>
+              }
+            </div>
+
+            <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[75px] xl:top-[120px]' onClick={()=>{setfloorClicked("Basement");}}>
+              <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[30vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='Basement' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('Basement') }} ></div>
+              {floor==='Basement' &&
+              <>
+                <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
+                <span className='text-white ml-[3%]'>Basement</span>
+              </>
+              }
+            </div>
+            
+
+          </div>
+          
             {/* </div> */}
   
           </div>
