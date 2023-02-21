@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import home from '../images/home.jpg'
 import { useNavigate } from "react-router-dom";
 
@@ -15,20 +15,29 @@ import {AiOutlineArrowLeft} from 'react-icons/ai'
 import {BsEyeFill} from 'react-icons/bs'
 import Floor from './floor';
 
-import SlidingPane from "react-sliding-pane";
-import "react-sliding-pane/dist/react-sliding-pane.css";
 
 const Home = (  {floor,setFloor,floorClicked,setfloorClicked}) => {
-
+  const [width, setWidth]   = useState(window.innerWidth);
   const [pane,setpane]=useState(false);
   const [menu,setmenu]=useState(false);
   const navigate = useNavigate();
+
+  const updateDimensions=()=>{
+    setWidth(window.innerWidth)
+  }
+  useEffect(()=>{
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  },[])
+
+
 
  const menuHandler=(event)=>{
   event.stopPropagation();
  }
 
 if(floorClicked.length===0){
+  console.log(floor.length>0)
   return (
     <>
       <div 
@@ -102,15 +111,16 @@ if(floorClicked.length===0){
           <div className='text-white relative  mt-16  mx-8 hidden sm:block mb:block '>
              <ul className='text-menuList text-[30px] flex flex-col gap-5'>
               <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>ABOUT THE PROJECT</a></li>
-              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>LOCATION</a></li>
-              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'> INFRASTRUCTURE</a></li>
-              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>PANORAMA</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>Brochure</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>Price Plan</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'> Construction Updates</a></li>
+              {/* <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>PANORAMA</a></li>
               <li  className='hover:text-primary active:text-[#e6af50]'><a href='#'>GALLERY</a></li>
               <li  className='hover:text-primary active:text-[#e6af50]'><a href='#'>CONTACTS</a></li>
               <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>HOW TO BUY</a></li>
               <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>PARKING AND STORAGE</a></li>
               <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>CONSTRUCTION PROGRESS</a></li>
-              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>DEVELOPER</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>DEVELOPER</a></li> */}
               {/* <li> <a href='#'>NEWS AND PROMOTIONS</a></li>
               <li> <a href='#'>DOCUMENTATION</a></li> */}
              </ul>            
@@ -121,19 +131,6 @@ if(floorClicked.length===0){
       </>
       }
 
-        <SlidingPane
-          className="some-custom-class !w-full !h-[30%] !mt-[35%] !hidden sm:!block mb:!block"
-          // overlayClassName="!hidden sm:!block mb:!block"
-          isOpen={floor.length>0}
-          from="bottom"
-          title="Hey, it is optional pane title.  I can be React component too."
-          subtitle="Optional subtitle."
-          onRequestClose={() => {
-            // triggered on "<" on left top click or on outside click
-            // setState({ isPaneOpen: false });
-            setFloor(floor.length>0)
-          }}
-        />
       {/* backdrop-brightness-50 */}
       {!menu &&
 
@@ -257,6 +254,7 @@ if(floorClicked.length===0){
                               </div>
 
                         </div>
+                        
             </div>
 
             <div className='relative  w-[50vw] md:w-[55.5vw] left-[22.5vw]  sm:[100vw]  md:left-[35%] lg-small:left-[33%] sm:left-[20%]  lg:left-[32.5%]  mb:left-[10%]  mb:w-[76vw]    h-full '>                
@@ -274,41 +272,75 @@ if(floorClicked.length===0){
                     <span className='text-white ml-[3%]'>First Floor</span>
                   </>
                   }
-            </div>
+                </div>
             
-            <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[68px] xl:top-[95px]' onClick={()=>{setfloorClicked("mazen");}}>
-              <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[31vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='mazen' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('mazen') }} ></div>
-              {floor==='mazen' &&
-              <>
-                <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
-                <span className='text-white text-[10px] ml-[3%]'>Mazen</span>
-              </>
-              }
-            </div>
+                <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[68px] xl:top-[95px]' onClick={()=>{setfloorClicked("mazen");}}>
+                  <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[31vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='mazen' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('mazen') }} ></div>
+                  {floor==='mazen' &&
+                  <>
+                    <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
+                    <span className='text-white text-[10px] ml-[3%]'>Mazen</span>
+                  </>
+                  }
+                </div>
 
-            <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[70px] xl:top-[110px]' onClick={()=>{setfloorClicked("Ground Floor");}}>
-              <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[30vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='Ground Floor' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('Ground Floor') }} ></div>
-              {floor==='Ground Floor' &&
-              <>
-                <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
-                <span className='text-white ml-[3%]'>Ground Floor</span>
-              </>
-              }
-            </div>
+                <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[70px] xl:top-[110px]' onClick={()=>{setfloorClicked("Ground Floor");}}>
+                  <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[30vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='Ground Floor' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('Ground Floor') }} ></div>
+                  {floor==='Ground Floor' &&
+                  <>
+                    <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
+                    <span className='text-white ml-[3%]'>Ground Floor</span>
+                  </>
+                  }
+                </div>
 
-            <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[75px] xl:top-[120px]' onClick={()=>{setfloorClicked("Basement");}}>
-              <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[30vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='Basement' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('Basement') }} ></div>
-              {floor==='Basement' &&
-              <>
-                <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
-                <span className='text-white ml-[3%]'>Basement</span>
-              </>
-              }
-            </div>
+                <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[75px] xl:top-[120px]' onClick={()=>{setfloorClicked("Basement");}}>
+                  <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[30vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='Basement' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('Basement') }} ></div>
+                  {floor==='Basement' &&
+                  <>
+                    <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
+                    <span className='text-white ml-[3%]'>Basement</span>
+                  </>
+                  }
+                </div>
             
 
           </div>
           
+          {/* <div className={`absolute top-0 left-0 backdrop-blur-0 w-full h-full  z-40 hidden `}> */}
+          <div className={`w-full   bg-white h-[30vh] mt-[70vh] z-50   fixed top-0 left-0 hidden  ${floor.length>0 ? ' sm:block mb:block':''}`} >
+            <ul className='mt-[2vh] flex flex-col gap-2'>
+              <li className='text-primary flex flex-row  text-[20px] justify-between px-4 hover:bg-primary hover:bg-opacity-10'>
+                <div className='flex flex-row   justify-between gap-6'>
+                  <h1>2E</h1>
+                  <h1>1 Appartment</h1>
+                </div>
+                <div>
+                  <span>FROM 23.2 MIllION </span>
+                </div>
+              </li>
+              <li className='text-primary flex flex-row  text-[20px] justify-between px-4'>
+                <div className='flex flex-row   justify-between gap-6'>
+                  <h1>2E</h1>
+                  <h1>1 Appartment</h1>
+                </div>
+                <div>
+                  <span>FROM 23.2 MIllION </span>
+                </div>
+              </li>
+              <li className='text-primary flex flex-row  text-[20px] justify-between px-4'>
+                <div className='flex flex-row   justify-between gap-6'>
+                  <h1>2E</h1>
+                  <h1>1 Appartment</h1>
+                </div>
+                <div>
+                  <span>FROM 23.2 MIllION </span>
+                </div>
+              </li>
+            </ul>
+            <button className=' text-[20] flex flex-row justify-center m-auto bg-primary text-white px-3 py-4 mt-1 rounded-full font-medium'>Choose An Appartment</button>
+          </div>
+
             {/* </div> */}
   
           </div>
