@@ -81,8 +81,8 @@ const FloorLevelLable = ({setfloorClicked,floorData,setfloorData}) => {
                          <div className='flex flex-row items-center justify-center  space-x-5 '>
                             <h1 className='sm:invisible mb:invisible'>Floors</h1>
                             <div className='flex flex-row  space-x-5'>
-                                <span className='bg-circle  w-12 h-12 align-middle text-center rounded-full cursor-pointer  flex items-center justify-center hover:border hover:border-secondary' onClick={OnefloorHandler}>LG</span>
-                                <span className='bg-circle  w-12 h-12 align-middle text-center rounded-full cursor-pointer  flex items-center justify-center hover:border hover:border-secondary' onClick={OnefloorHandler}>G</span>
+                                <span className='bg-circle  w-12 h-12 align-middle text-center rounded-full cursor-pointer  flex items-center justify-center hover:border hover:border-secondary' onClick={LgfloorHandler}>LG</span>
+                                <span className='bg-circle  w-12 h-12 align-middle text-center rounded-full cursor-pointer  flex items-center justify-center hover:border hover:border-secondary' onClick={GfloorHandler}>G</span>
                                 <span className='bg-circle  w-12 h-12 align-middle text-center rounded-full cursor-pointer  flex items-center justify-center hover:border hover:border-secondary' onClick={MfloorHandler}>M</span>
                                 <span className='bg-circle  w-12 h-12 align-middle text-center rounded-full cursor-pointer  flex items-center justify-center hover:border hover:border-secondary' onClick={OnefloorHandler}>1</span>
                                 <span className='bg-circle  w-12 h-12 align-middle text-center rounded-full cursor-pointer  flex items-center justify-center hover:border hover:border-secondary' onClick={SecondfloorHandler}>2</span>
