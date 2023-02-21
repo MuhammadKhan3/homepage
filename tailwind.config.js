@@ -5,6 +5,10 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      poppins: ["Poppins", "sans-serif"],
+      // adelia: ["ADELIA", "cursive"],
+    },
     screens: {
       'mb':{'min':'350px','max':'639px'},
 

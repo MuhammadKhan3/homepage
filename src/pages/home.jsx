@@ -22,6 +22,7 @@ const Home = (  {floor,setFloor,floorClicked,setfloorClicked}) => {
   const [width, setWidth]   = useState(window.innerWidth);
   const [pane,setpane]=useState(false);
   const [menu,setmenu]=useState(false);
+  const [appartment,setappartment]=useState('');
   const navigate = useNavigate();
 
   const updateDimensions=()=>{
@@ -38,8 +39,15 @@ const Home = (  {floor,setFloor,floorClicked,setfloorClicked}) => {
   event.stopPropagation();
  }
 
+ const floorHandler=(label)=>{
+  if(label.length>0 && width>767){
+    setfloorClicked(label)
+  }else{
+    setappartment(label)
+  }
+ }
+
 if(floorClicked.length===0){
-  console.log(floor.length>0)
   return (
     <>
       <div 
@@ -122,7 +130,7 @@ if(floorClicked.length===0){
                         <h1 className="   relative   text-[#BB9692] text-popup-heading">{floor}</h1>
                         <div className='flex flex-col space-y-3  '>
                               <div className='text-[#606060] flex flex-row justify-around items-center  relative space-x-8'>
-                                <h1 className='text-extraLarge text-[#606060]'>01</h1>
+                                <h1 className='text-extraLarge font-poppins text-[#606060]'>01</h1>
                                 <div className='flex flex-col leading-4'>
                                   <div className='text-[#606060] text-small'>
                                       Shop From 12 Million PKR
@@ -134,7 +142,7 @@ if(floorClicked.length===0){
                               </div>
             
                               <div className='text-[#606060] flex flex-row justify-around items-center  relative space-x-8'>
-                                <h1 className='text-extraLarge text-[#606060]'>01</h1>
+                                <h1 className='text-extraLarge font-poppins text-[#606060]'>01</h1>
                                 <div className='flex flex-col leading-4'>
                                   <div className='text-[#606060] text-small'>
                                       Shop From 12 Million PKR
@@ -146,7 +154,7 @@ if(floorClicked.length===0){
                               </div>
             
                               <div className='text-[#606060] flex flex-row justify-around items-center  relative space-x-8'>
-                                <h1 className='text-extraLarge text-[#606060]'>01</h1>
+                                <h1 className='text-extraLarge font-poppins text-[#606060]'>01</h1>
                                 <div className='flex flex-col leading-4'>
                                   <div className='text-[#606060] text-small'>
                                       Shop From 12 Million PKR
@@ -158,7 +166,7 @@ if(floorClicked.length===0){
                               </div>
             
                               <div className='text-[#606060] flex flex-row justify-around items-center  relative space-x-8'>
-                                <h1 className='text-extraLarge text-[#606060]'>01</h1>
+                                <h1 className='text-extraLarge font-poppins text-[#606060]'>01</h1>
                                 <div className='flex flex-col leading-4'>
                                   <div className='text-[#606060] text-small'>
                                       Shop From 12 Million PKR
@@ -174,13 +182,13 @@ if(floorClicked.length===0){
             </div>
 
             <div className='relative  w-[50vw] md:w-[55.5vw] left-[22.5vw]  sm:[100vw]  md:left-[35%] lg-small:left-[33%] sm:left-[20%]  lg:left-[32.5%]  mb:left-[10%]  mb:w-[76vw]    h-full '>                
-                <div className={`flex flex-row items-center w-full h-full relative top-5 lg:top-[42px] xl:top-[52px]  ${floor==='2' ? 'visible':'invisible'}`} onClick={()=>{setfloorClicked("2")}}>
+                <div className={`flex flex-row items-center w-full h-full relative top-5 lg:top-[42px] xl:top-[52px]  ${floor==='2' ? 'visible':'invisible'}`} onClick={()=>{floorHandler("2")}}>
                   <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[31vw] mb:w-[100vw] sm:w-[100vw] md:w-[36.7vw]   visible      ${floor==='2nd' ? 'bg-blue-50 opacity-[0.3]' :''}`} onMouseEnter={()=>{console.log('hi..');setFloor("2nd")}} ></div>
                   <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
                   <span className='text-white ml-[3%]'>Second Floor</span>
                 </div>
 
-                <div className='flex flex-row items-center w-full h-full relative top-[30px] lg:top-[57px] xl:top-[70px]' onClick={()=>{setfloorClicked("1");}}>
+                <div className='flex flex-row items-center w-full h-full relative top-[30px] lg:top-[57px] xl:top-[70px]' onClick={()=>{floorHandler("1");}}>
                   <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[31vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='1st' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('1st') }} ></div>
                   {floor==='1st' &&
                   <>
@@ -190,7 +198,7 @@ if(floorClicked.length===0){
                   }
                 </div>
             
-                <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[68px] xl:top-[95px]' onClick={()=>{setfloorClicked("mazen");}}>
+                <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[68px] xl:top-[95px]' onClick={()=>{floorHandler("mazen");}}>
                   <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[31vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='mazen' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('mazen') }} ></div>
                   {floor==='mazen' &&
                   <>
@@ -200,7 +208,7 @@ if(floorClicked.length===0){
                   }
                 </div>
 
-                <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[70px] xl:top-[110px]' onClick={()=>{setfloorClicked("Ground Floor");}}>
+                <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[70px] xl:top-[110px]' onClick={()=>{floorHandler("Ground Floor");}}>
                   <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[30vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='Ground Floor' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('Ground Floor') }} ></div>
                   {floor==='Ground Floor' &&
                   <>
@@ -210,7 +218,7 @@ if(floorClicked.length===0){
                   }
                 </div>
 
-                <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[75px] xl:top-[120px]' onClick={()=>{setfloorClicked("Basement");}}>
+                <div className='flex flex-row items-center w-full h-full relative top-[48px] lg:top-[75px] xl:top-[120px]' onClick={()=>{floorHandler("Basement")}}>
                   <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[30vw] sm:w-[100vw] md:w-[36.7vw] mb:w-[80vw]  visible    ${floor==='Basement' ? 'bg-blue-50 opacity-[0.3]':''}`} onMouseEnter={()=>{console.log('hi..');setFloor('Basement') }} ></div>
                   {floor==='Basement' &&
                   <>
@@ -221,7 +229,7 @@ if(floorClicked.length===0){
                 </div>
                 
 
-                <DropPane floor={floor}/>
+                <DropPane appartment={appartment} setfloorClicked={setfloorClicked} floorClicked={floorClicked} floor={floor}/>
           </div>
           
           {/* <div className={`absolute top-0 left-0 backdrop-blur-0 w-full h-full  z-40 hidden `}> */}

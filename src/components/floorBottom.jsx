@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import shop from '../images/shop.png'
 import floor from '../images/floorLocation.jpeg'
+import FloorSvg from './floorsvg'
 const FloorBottom = () => {
   const [floorData,setfloorData]=useState({
     floor:"Second floor",
@@ -80,8 +81,8 @@ const FloorBottom = () => {
        </div>
 
     </div>
-    <div className='max-h-[25%]   max-w-[35%]  object-cover mx-auto mt-[5%] sm:w-11/12 sm:max-w-full sm:mx-auto     mb:ml-0 mb:mt-1 mb:w-full sm:max-h-full mb:max-w-full'>
-      <map name='tabs'>
+    <div className='max-h-[35%]   max-w-[85%]  object-cover mx-auto mt-[5%] sm:w-11/12 sm:max-w-full sm:mx-auto     mb:ml-0 mb:mt-1 mb:w-full sm:max-h-full mb:max-w-full'>
+      {/* <map name='tabs'>
          <area 
             shape='circle' 
             href='#one' 
@@ -107,8 +108,8 @@ const FloorBottom = () => {
             onClick={S4Handler}
          />
       <img src={floor} useMap="#tabs" className=" h-full  object-cover w-full"/>    
-      </map>
-
+      </map> */}
+      <FloorSvg/>
     </div>
   </section>
   </>)
