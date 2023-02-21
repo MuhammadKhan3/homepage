@@ -9,6 +9,14 @@
     max-height: 100%;
 }
 
+
+@media only screen and (min-device-width: 381px) and (max-device-width: 767px) {
+
+    .container{
+      background-position: 50% 50%;
+    }
+}
+
 area {
     background-color: red;
 }

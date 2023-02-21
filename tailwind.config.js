@@ -60,6 +60,17 @@ module.exports = {
 
         }
       ],
+      'menuList':[
+        '30px',
+        {
+          fontFamily: 'Poppins',
+          fontSize: '43px',
+          fontWeight: '30',
+          lineHeight: '37px',
+          letterSpacing: '-0.025em',
+          textAlign: 'left',
+        }
+      ],
       'small':[
         '12px',
         {

@@ -15,8 +15,12 @@ import {AiOutlineArrowLeft} from 'react-icons/ai'
 import {BsEyeFill} from 'react-icons/bs'
 import Floor from './floor';
 
+import SlidingPane from "react-sliding-pane";
+import "react-sliding-pane/dist/react-sliding-pane.css";
+
 const Home = (  {floor,setFloor,floorClicked,setfloorClicked}) => {
 
+  const [pane,setpane]=useState(false);
   const [menu,setmenu]=useState(false);
   const navigate = useNavigate();
 
@@ -33,8 +37,8 @@ if(floorClicked.length===0){
       {menu &&
       <>
 
-        <div onClick={menuHandler} className='w-full h-full z-10 backdrop-brightness-50  bg-primary bg-opacity-60 absolute top-0 left-0 '>
-          <div className='text-primary z-50 relative top-10 flex flex-row items-center w-full justify-between px-10 mb:px-1 sm:px-2 '>
+        <div onClick={menuHandler} className='w-full h-full overflow-auto z-10 backdrop-brightness-50  bg-primary bg-opacity-60 absolute top-0 left-0 '>
+          <div className='text-primary z-50 relative top-10 flex flex-row items-center w-full justify-between px-10 mb:px-1 sm:px-2  '>
             <div className='flex flex-row justify-center items-center space-x-5 '>
                 <div className='h-[51.09px] w-[180.9px] rounded-3xl border-[1px] border-primary cursor-pointer flex flex-row   items-center justify-center hover:bg-primary hover:text-white sm:hidden mb:hidden'>
                     Sign In
@@ -68,11 +72,11 @@ if(floorClicked.length===0){
                     Sign In
                 </div>
                 <label  htmlFor="my-modal">
-                  <div  className='h-[51.09px] w-[120.9px] rounded-3xl border-[1px] text-center text-white  bg-base cursor-pointer  hover:bg-floorText hover:text-white flex-row justify-center items-center hidden sm:flex  mb:flex '>
+                  <div  className='h-[51.09px] w-[120.9px] rounded-3xl border-[1px] text-center text-white  bg-base cursor-pointer  hover:bg-floorText hover:text-white flex-row justify-center items-center hidden sm:flex  mb:flex mr-5'>
                       Appartments
                   </div>
                 </label>
-                <div>
+                {/* <div>
                   <input type="checkbox" id="my-modal" className="modal-toggle" />
                   <div className="modal  rounded-none">
                     <div className="modal-box h-[23%] w-[95%] rounded-none p-0 absolute top-28 divide-x flex flex-row bg-[#F6F2EC]">
@@ -91,24 +95,24 @@ if(floorClicked.length===0){
                       </div>
                     </div>
                   </div>
-                </div>  
+                </div>   */}
             </div>
           </div>   
                   {/* menu list */}
-          <div className='text-white relative block mt-16  mx-8'>
-             <ul className='text-extraLarge text-[30px] flex flex-col gap-2'>
-              <li> <a href='#'>ABOUT THE PROJECT</a></li>
-              <li> <a href='#'>LOCATION</a></li>
-              <li> <a href='#'> INFRASTRUCTURE</a></li>
-              <li> <a href='#'>PANORAMA</a></li>
-              <li> <a href='#'>GALLERY</a></li>
-              <li> <a href='#'>CONTACTS</a></li>
-              <li> <a href='#'>HOW TO BUY</a></li>
-              <li> <a href='#'>PARKING AND STORAGE</a></li>
-              <li> <a href='#'>CONSTRUCTION PROGRESS</a></li>
-              <li> <a href='#'>DEVELOPER</a></li>
-              <li> <a href='#'>NEWS AND PROMOTIONS</a></li>
-              <li> <a href='#'>DOCUMENTATION</a></li>
+          <div className='text-white relative  mt-16  mx-8 hidden sm:block mb:block '>
+             <ul className='text-menuList text-[30px] flex flex-col gap-5'>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>ABOUT THE PROJECT</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>LOCATION</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'> INFRASTRUCTURE</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>PANORAMA</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'><a href='#'>GALLERY</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'><a href='#'>CONTACTS</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>HOW TO BUY</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>PARKING AND STORAGE</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>CONSTRUCTION PROGRESS</a></li>
+              <li  className='hover:text-primary active:text-[#e6af50]'> <a href='#'>DEVELOPER</a></li>
+              {/* <li> <a href='#'>NEWS AND PROMOTIONS</a></li>
+              <li> <a href='#'>DOCUMENTATION</a></li> */}
              </ul>            
           </div>
         </div>
@@ -117,6 +121,19 @@ if(floorClicked.length===0){
       </>
       }
 
+        <SlidingPane
+          className="some-custom-class !w-full !h-[30%] !mt-[35%] !hidden sm:!block mb:!block"
+          // overlayClassName="!hidden sm:!block mb:!block"
+          isOpen={floor.length>0}
+          from="bottom"
+          title="Hey, it is optional pane title.  I can be React component too."
+          subtitle="Optional subtitle."
+          onRequestClose={() => {
+            // triggered on "<" on left top click or on outside click
+            // setState({ isPaneOpen: false });
+            setFloor(floor.length>0)
+          }}
+        />
       {/* backdrop-brightness-50 */}
       {!menu &&
 
@@ -187,8 +204,8 @@ if(floorClicked.length===0){
             {/* {floor && */}
 
         
-        <div className='flex flex-row relative w-[85%]  left-[13%] md:left-[3%] lg-small:left-[6%] lg:left-[8%]   top-[30%]' onMouseLeave={()=>{setFloor("")}} >
-            <div className={`bg-box cursor-pointer   w-fit h-fit     flex flex-col items-start absolute   left-[1%] p-3    ${floor.length>0 ? "block" : "hidden"}`} onClick={()=>{setfloorClicked(floor)}} >
+        <div className='flex flex-row relative w-[85%]  left-[13%] md:left-[3%] lg-small:left-[6%] lg:left-[8%]   top-[30%]  ' onMouseLeave={()=>{setFloor("")}} >
+            <div className={`bg-box cursor-pointer   w-fit h-fit  flex flex-col items-start absolute   left-[1%] p-3    ${floor.length>0 ? "block sm:hidden mb:hidden" : "hidden"}`} onClick={()=>{setfloorClicked(floor)}} >
                         <h1 className="   relative   text-[#BB9692] text-popup-heading">{floor}</h1>
                         <div className='flex flex-col space-y-3  '>
                               <div className='text-[#606060] flex flex-row justify-around items-center  relative space-x-8'>
