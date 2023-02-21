@@ -51,7 +51,7 @@ if(floorClicked.length===0){
   return (
     <>
       <div 
-      className='container w-screen '
+      className='container w-screen overflow-hidden'
       >
 
       <MobileMenu menu={menu} setmenu={setmenu}/>
