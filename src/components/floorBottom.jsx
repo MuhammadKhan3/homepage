@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
 import shop from '../images/shop.png'
 import floor from '../images/floorLocation.jpeg'
-import FloorSvg from './floorsvg'
-const FloorBottom = () => {
-  const [floorData,setfloorData]=useState({
-    floor:"Second floor",
-    square:56500,
-    shop:"S1",
-    shopFeet:763.75,
-    totalPrice:43151875
-  })
+import FloorSvg from './floorsvg';
+import FadeIn from 'react-fade-in';
+
+const FloorBottom = ({floorData,setfloorData}) => {
+
 
   const S1Handler=()=>{
     setfloorData({
@@ -42,6 +38,7 @@ const FloorBottom = () => {
   }
 
 
+
   const S4Handler=()=>{
     setfloorData({
       floor:"Second floor",
@@ -51,14 +48,18 @@ const FloorBottom = () => {
       totalPrice:63151875
     })
   }
-  
+  console.log(floorData.l)
   return (<>
   <section className='w-full min-h-full flex flex-row  items-start sm:flex-col mb:flex-col'>
     <div className='bg-secondary  h-[100%]  max-h-full text-base w-[50%] mb:w-full sm:w-full md:w-full '>
+      <FadeIn className=''
+      visible={Object.keys(floorData).length>0}
+      >
+
        <div className='flex flex-col justify-center items-center h-auto mt-14  space-y-16 '>
           <div className='flex flex-row justify-between items-center w-[70%] mb:w-[90%] md:w-[90%] sm:w-[90%]'>
             <div>
-              <h1 className='text-cinzel-68 mb:text-[2.5rem]' style={{fontFamily:'Cinzel'}}>Second <span className='text-cinzel-48 mb:text-[2rem]' style={{fontFamily:'Cinzel'}}>floor</span></h1>
+              <h1 className='text-cinzel-68 mb:text-[2.5rem]' style={{fontFamily:'Cinzel'}}>{floorData?.floor?.split(' ')[0]} <span className='text-cinzel-48 mb:text-[2rem]' style={{fontFamily:'Cinzel'}}>{floorData?.floor?.split(' ')[1]}</span></h1>
               <p className='text-floorText text-available'>3/4 Shops availabe</p>
             </div>
             <div className='flex flex-row items-start'>
@@ -79,6 +80,9 @@ const FloorBottom = () => {
              <span className='mt-5 text-[#8B6C69]'>Total Value</span>
           </div>
        </div>
+      
+
+      </FadeIn>
 
     </div>
     <div className='max-h-[35%]   max-w-[85%]  object-cover mx-auto mt-[5%] sm:w-11/12 sm:max-w-full sm:mx-auto     mb:ml-0 mb:mt-1 mb:w-full sm:max-h-full mb:max-w-full'>
