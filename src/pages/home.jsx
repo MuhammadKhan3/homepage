@@ -181,7 +181,7 @@ if(floorClicked.length===0){
                         
             </div>
 
-            <div className='relative  w-[50vw] md:w-[55.5vw] left-[22.5vw]  sm:[100vw]  md:left-[35%] lg-small:left-[33%] sm:left-[20%]  lg:left-[32.5%]  mb:left-[10%]  mb:w-[76vw]    h-full sm:overflow-hidden md:overflow-hidden'>                
+            <div className='relative  w-[50vw] md:w-[55.5vw] left-[22.5vw]  sm:[100vw]  md:left-[35%] lg-small:left-[33%] sm:left-[20%]  lg:left-[32.5%]  mb:left-[10%]  mb:w-[76vw]    h-full sm:overflow-hidden mb:overflow-hidden'>                
                 <div className={`flex flex-row items-center w-full h-full relative top-5 lg:top-[42px] xl:top-[52px]  ${floor==='2' ? 'visible':'invisible'}`} onClick={()=>{floorHandler("2")}}>
                   <div className={` text-white cursor-pointer flex flex-row  align-middle  h-[65px] w-[31vw] mb:w-[100vw] sm:w-[100vw] md:w-[36.7vw]   visible      ${floor==='2nd' ? 'bg-blue-50 opacity-[0.3]' :''}`} onMouseEnter={()=>{console.log('hi..');setFloor("2nd")}} ></div>
                   <span className='text-white border-[1px] border-white w-[7%] ml-[3%]'></span>
