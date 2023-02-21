@@ -14,7 +14,7 @@ const DropPane = ({floor,appartment, setfloorClicked,floorClicked}) => {
       </li>
       <li className='text-primary flex flex-row  text-[1rem] justify-between px-4'>
         <div className='flex flex-row   justify-between gap-6'>
-          <h1 className='text-[16px] '>2E</h1>
+          <h1 className=''>2E</h1>
           <h1>1 Appartment</h1>
         </div>
         <div>
