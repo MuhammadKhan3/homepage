@@ -48,11 +48,9 @@ const Header = ({setfloorClicked}) => {
                     <div className='h-[51.09px] w-[180.9px] rounded-3xl border-[1px]  cursor-pointer flex flex-row   items-center border-none justify-center bg-floorText text-white sm:hidden mb:hidden'>
                         Sign In
                     </div>
-                    <label className='h-[51.09px] w-fit rounded-3xl border-[1px] text-center text-white  border-floorText cursor-pointer  hover:bg-floorText hover:text-white hidden sm:flex mb:flex  flex-row justify-center items-center   px-4'  htmlFor="my-modal">
-                        {/* <div  > */}
+                    {/* <label className='h-[51.09px] w-fit rounded-3xl border-[1px] text-center text-white  border-floorText cursor-pointer  hover:bg-floorText hover:text-white hidden sm:flex mb:flex  flex-row justify-center items-center   px-4'  htmlFor="my-modal">
                             Appartments
-                        {/* </div> */}
-                    </label>
+                    </label> */}
                     <div>
                     <input type="checkbox" id="my-modal" className="modal-toggle" />
                     <div className="modal  rounded-none">

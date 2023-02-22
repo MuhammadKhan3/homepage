@@ -1,7 +1,7 @@
 import React from 'react'
 
-const MFloor = () => {
-  return (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.13 345.32" className='mx-auto w-full p-2 h-[70vh]'>
+const Mezzannine = () => {
+  return (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.13 345.32" className='mx-auto w-full p-2 h-[70vh] sm:h-fit mb:h-fit'>
   <defs>
     <style>
     {`
@@ -116,4 +116,4 @@ const MFloor = () => {
 </svg>)
 }
 
-export default MFloor
+export default Mezzannine

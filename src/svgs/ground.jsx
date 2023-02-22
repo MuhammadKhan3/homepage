@@ -3,7 +3,7 @@ const Ground=()=>{
     
     return(
         // mx-auto !w-[81%] mt-[1.25rem] !h-[40%]
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.13 321.66" className="mx-auto w-full p-2 h-[70vh]">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.13 321.66" className="mx-auto w-full p-2 h-[70vh] sm:h-fit mb:h-fit">
         <defs>
             <style>
             {`
