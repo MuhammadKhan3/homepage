@@ -25,13 +25,13 @@ const Home = (  {floor,setFloor,floorClicked,setfloorClicked}) => {
   const [appartment,setappartment]=useState('');
   const navigate = useNavigate();
 
-  const updateDimensions=()=>{
-    setWidth(window.innerWidth)
-  }
-  useEffect(()=>{
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
-  },[])
+  // const updateDimensions=()=>{
+  //   setWidth(window.innerWidth)
+  // }
+  // useEffect(()=>{
+  //   window.addEventListener("resize", updateDimensions);
+  //   return () => window.removeEventListener("resize", updateDimensions);
+  // },[])
 
 
 
@@ -40,11 +40,11 @@ const Home = (  {floor,setFloor,floorClicked,setfloorClicked}) => {
  }
 
  const floorHandler=(label)=>{
-  if(label.length>0 && width>767){
-    setfloorClicked(label)
-  }else{
-    setappartment(label)
-  }
+   setfloorClicked(label)
+  // if(label.length>0 && width>767){
+  // }else{
+  //   setappartment(label)
+  // }
  }
 
 if(floorClicked.length===0){
@@ -229,7 +229,7 @@ if(floorClicked.length===0){
                 </div>
                 
 
-                <DropPane appartment={appartment} setfloorClicked={setfloorClicked} floorClicked={floorClicked} floor={floor}/>
+                {/* <DropPane appartment={appartment} setfloorClicked={setfloorClicked} floorClicked={floorClicked} floor={floor}/> */}
           </div>
           
           {/* <div className={`absolute top-0 left-0 backdrop-blur-0 w-full h-full  z-40 hidden `}> */}
@@ -242,7 +242,7 @@ if(floorClicked.length===0){
     </>)
 
 }else if(floorClicked.length>0) {
-  return (<Floor setfloorClicked={setfloorClicked}/>);
+  return (<Floor setfloorClicked={setfloorClicked} />);
 }
 
 
