@@ -1,6 +1,62 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { updateFloor } from '../redux/homepage/homeslice';
 
 const LowerGround = () => {
+  const dispatch=useDispatch();
+
+  const L1Handler=()=>{
+    const time=setTimeout(() => {
+      dispatch(updateFloor({
+        floor:"Lower Ground",
+        square:66500,
+        shop:"L1",
+        shopFeet:652.56 ,
+        totalPrice:43395240
+      }))
+      clearTimeout(time)
+    }, 500);
+  }
+
+  const L2Handler=()=>{
+    const time=setTimeout(() => {
+      dispatch(updateFloor({
+        floor:"Lower Ground",
+        square:66500,
+        shop:"L2",
+        shopFeet:639.31 ,
+        totalPrice: 42514115
+      }))
+      clearTimeout(time)
+    }, 500);
+  }
+
+  const L3Handler=()=>{
+    const time=setTimeout(() => {
+      dispatch(updateFloor({
+        floor:"Lower Ground",
+        square:66500,
+        shop:"L3",
+        shopFeet:639.31 ,
+        totalPrice: 42514115
+      }))
+      clearTimeout(time)
+    }, 500);
+  }
+
+  const L4Handler=()=>{
+    const time=setTimeout(() => {
+      dispatch(updateFloor({
+        floor:"Lower Ground",
+        square:66500,
+        shop:"L4",
+        shopFeet:612.81  ,
+        totalPrice: 40751865
+      }))
+      clearTimeout(time)
+    }, 500);
+  }
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.13 316.78" className='mx-auto w-full p-2 h-[70vh] sm:h-fit mb:h-fit'>
   <defs>

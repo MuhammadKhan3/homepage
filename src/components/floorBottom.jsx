@@ -52,7 +52,7 @@ const FloorBottom = ({floorData,setfloorData,MfloorHandler, SecondfloorHandler, 
     <div className='  w-[50%]   h-full         object-cover   sm:w-11/12 sm:max-w-full sm:mx-auto     mb:ml-0 mb:mt-1 mb:w-full sm:max-h-full mb:max-w-full '>
       <FadeIn className='!w-full !h-full flex flex-col items-center justify-center'
        visible={Object.keys(floorData).length>0}>
-        {floorData.floor==='Ground' ?
+        {floorData.floor==='Ground Floor' ?
           <Ground/>
          : floorData.floor==='Lower Ground' ?
           <LowerGround/>

@@ -2,6 +2,7 @@ import React from 'react'
 
 const FloorSvg = ({MfloorHandler, SecondfloorHandler, OnefloorHandler, LgfloorHandler, GfloorHandler}) => {
   // !w-[76%] mt-[1.25rem] !h-[40%]
+
   return (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.13 345.32" className='mx-auto w-full p-2  h-[70vh] sm:h-fit mb:h-fit'>
   <defs>
     <style>
