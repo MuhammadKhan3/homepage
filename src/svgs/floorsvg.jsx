@@ -4,17 +4,45 @@ import { updateFloor } from '../redux/homepage/homeslice';
 
 const FloorSvg = ({}) => {
   const dispatch=useDispatch();
+  const floor=[
+    {
+      floor:"First Floor",
+      square:56500,
+      shop:"L1",
+      shopFeet:652.56 ,
+      totalPrice:40347780,
+      sold:true,
+    },
+    {
+      floor:"Second Floor",
+      square:66500,
+      shop:"L2",
+      shopFeet:639.31 ,
+      totalPrice: 42514115
+    },
+    {
+      floor:"Third Floor",
+      square:66500,
+      shop:"L3",
+      shopFeet:639.31 ,
+      totalPrice: 42514115,
+      sold:true
+    },
+    {
+      floor:"Fourth Floor",
+      square:56500,
+      shop:"L4",
+      shopFeet:612.81  ,
+      totalPrice: 40751865
+    }
+  ]
 
   const F1Handler=()=>{
     dispatch(updateFloor({}))
 
     const time=setTimeout(() => {
       dispatch(updateFloor({
-        floor:"First Floor",
-        square:56500,
-        shop:"L1",
-        shopFeet:652.56 ,
-        totalPrice:40347780
+
       }))
       clearTimeout(time)
     }, 500);
@@ -46,7 +74,8 @@ const FloorSvg = ({}) => {
         square:66500,
         shop:"L3",
         shopFeet:639.31 ,
-        totalPrice: 42514115
+        totalPrice: 42514115,
+        sold:true
       }))
       clearTimeout(time)
     }, 500);
@@ -174,8 +203,8 @@ const FloorSvg = ({}) => {
        <text className="cls-5 cursor-pointer" transform="translate(37.29 118.93)" onClick={F1Handler} >F1</text>
       <circle className="cls-4  cursor-pointer" cx="113.8" cy="116.15" r="14.08" onClick={F2Handler}/>
       <text className="cls-5 cursor-pointer" transform="translate(109.87 118.93)" onClick={F2Handler}>F2</text>
-      <circle className="cls-4   cursor-pointer" cx="186.15" cy="116.15" r="14.08" onClick={F3Handler}  /><text className="cls-5 cursor-pointer" transform="translate(182.17 118.93)" >F3</text>
-      <circle className="cls-4  cursor-pointer" cx="264.37" cy="116.15" r="14.08"  onClick={F4Handler}/><text  className="cls-5 cursor-pointer" transform="translate(260.24 118.93)">F4</text>
+      <circle className={`cls-4   cursor-pointer`} cx="186.15" cy="116.15" r="14.08" onClick={F3Handler}  /><text className="cls-5 cursor-pointer" transform="translate(182.17 118.93)" onClick={F3Handler}  >F3</text>
+      <circle className="cls-4  cursor-pointer" cx="264.37" cy="116.15" r="14.08"  onClick={F4Handler}/><text  className="cls-5 cursor-pointer" transform="translate(260.24 118.93)" onClick={F4Handler}>F4</text>
       <g id="Padlock">
         <path className="cls-4" d="M44.5,141.1v-2.57a3.44,3.44,0,1,0-6.87,0v2.57a1.29,1.29,0,0,0-1.29,1.29v5.16a1.29,1.29,0,0,0,1.29,1.29H44.5a1.29,1.29,0,0,0,1.29-1.29v-5.16A1.29,1.29,0,0,0,44.5,141.1Zm-6-2.57a2.58,2.58,0,1,1,5.15,0v2.57H38.49Zm6.44,9a.43.43,0,0,1-.43.43H37.63a.43.43,0,0,1-.43-.43v-5.16a.43.43,0,0,1,.43-.43H44.5a.43.43,0,0,1,.43.43Zm-3.44-2.89v-1a.43.43,0,0,0-.43-.43.43.43,0,0,0-.43.43v1a.86.86,0,1,0,1.29.74A.85.85,0,0,0,41.49,144.66Z" />
       </g>

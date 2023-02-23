@@ -1,6 +1,79 @@
-
+import { useDispatch } from "react-redux";
+import { updateFloor } from "../redux/homepage/homeslice";
 const Ground=()=>{
-    
+    const dispatch=useDispatch();
+
+    const Groundfloor=[
+      {
+        floor:"Ground Floor",
+        square: 95000,
+        shop:"G1",
+        shopFeet:652.56 ,
+        totalPrice:61993200
+      },
+      {
+        floor:"Ground Floor",
+        square:95000,
+        shop:"G2",
+        shopFeet:639.31 ,
+        totalPrice: 60734450,
+        sold:true,
+      },
+      {
+        floor:"Ground Floor",
+        square:95000 ,
+        shop:"G3",
+        shopFeet:639.31 ,
+        totalPrice: 60734450
+      },
+      {
+        floor:"Ground Floor",
+        square:95000,
+        shop:"G4",
+        shopFeet:612.81  ,
+        totalPrice: 40751865,
+
+      }
+    ]
+
+    const G1Handler=()=>{
+      dispatch(updateFloor({}))
+  
+      const time=setTimeout(() => {
+        dispatch(updateFloor(Groundfloor[0]))
+        clearTimeout(time)
+      }, 500);
+    }
+  
+    const G2Handler=()=>{
+      dispatch(updateFloor({}))
+  
+  
+      const time=setTimeout(() => {
+        dispatch(updateFloor(Groundfloor[1]))
+        clearTimeout(time)
+      }, 500);
+    }
+  
+    const G3Handler=()=>{
+      dispatch(updateFloor({}))
+  
+  
+      const time=setTimeout(() => {
+        dispatch(updateFloor(Groundfloor[2]))
+        clearTimeout(time)
+      }, 500);
+    }
+  
+    const G4Handler=()=>{
+      dispatch(updateFloor({}))
+      
+      const time=setTimeout(() => {
+        dispatch(updateFloor(Groundfloor[3]))
+        clearTimeout(time)
+      }, 500);
+    }
+
     return(
         // mx-auto !w-[81%] mt-[1.25rem] !h-[40%]
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.13 321.66" className="mx-auto w-full p-2 h-[70vh] sm:h-fit mb:h-fit">
@@ -153,10 +226,10 @@ const Ground=()=>{
             <polyline class="cls-3" points="34.81 311.3 145.48 311.3 145.48 313.26 34.81 313.26" />
             <polyline class="cls-3" points="228.39 314.82 351.19 314.82 351.19 316.78 228.39 316.78" />
             <polyline class="cls-3" points="228.39 311.3 351.19 311.3 351.19 313.26 228.39 313.26" />
-            <circle class="cls-4 cursor-pointer" cx="40.28" cy="104.81" r="14.08" /><text class="cls-5 cursor-pointer" transform="translate(36.28 107.59)">G1</text>
-            <circle class="cls-4 cursor-pointer" cx="113.8" cy="104.81" r="14.08" /><text class="cls-5 cursor-pointer" transform="translate(108.87 107.59)">G2</text>
-            <circle class="cls-4 cursor-pointer" cx="186.15" cy="104.81" r="14.08" /><text class="cls-5 cursor-pointer" transform="translate(181.17 107.59)">G3</text>
-            <circle class="cls-4 cursor-pointer" cx="264.37" cy="104.81" r="14.08" /><text class="cls-5 cursor-pointer" transform="translate(259.24 107.59)">G4</text>
+            <circle class={`cls-4  ${Groundfloor[0]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} cx="40.28" cy="104.81" r="14.08" onClick={()=>{!Groundfloor[0].sold===true && G1Handler()}} /><text class={`cls-5  ${Groundfloor[0]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} transform="translate(36.28 107.59)">G1</text>
+            <circle class={`cls-4  ${Groundfloor[1]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} cx="113.8" cy="104.81" r="14.08" onClick={()=>{!Groundfloor[1].sold===true && G2Handler()}} /><text class={`cls-5 ${Groundfloor[1]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} transform="translate(108.87 107.59)">G2</text>
+            <circle class={`cls-4  ${Groundfloor[2]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} cx="186.15" cy="104.81" r="14.08" onClick={()=>{!Groundfloor[2].sold===true && G3Handler()}} /><text class={`cls-5  ${Groundfloor[2]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} transform="translate(181.17 107.59)" onClick={()=>{!Groundfloor[2].sold===true && G3Handler()}}>G3</text>
+            <circle class={`cls-4  ${Groundfloor[3]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} cx="264.37" cy="104.81" r="14.08" onClick={()=>{!Groundfloor[3].sold===true && G4Handler()}} /><text class={`cls-5  ${Groundfloor[3]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} transform="translate(259.24 107.59)" onClick={()=>{!Groundfloor[3].sold===true && G4Handler()}}>G4</text>
             <g id="Padlock">
                 <path class="cls-4" d="M117.27,130.82v-2.57a3.44,3.44,0,0,0-6.88,0v2.57a1.28,1.28,0,0,0-1.28,1.29v5.16a1.28,1.28,0,0,0,1.28,1.28h6.88a1.28,1.28,0,0,0,1.29-1.28v-5.16A1.29,1.29,0,0,0,117.27,130.82Zm-6-2.57a2.58,2.58,0,0,1,5.16,0v2.57h-5.16Zm6.45,9a.44.44,0,0,1-.43.43h-6.88a.44.44,0,0,1-.43-.43v-5.16a.43.43,0,0,1,.43-.43h6.88a.43.43,0,0,1,.43.43Zm-3.44-2.89v-1a.43.43,0,0,0-.86,0v1a.85.85,0,0,0-.43.74.86.86,0,0,0,1.72,0A.85.85,0,0,0,114.26,134.38Z" />
             </g>
