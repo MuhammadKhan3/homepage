@@ -1,7 +1,71 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { updateFloor } from '../redux/homepage/homeslice';
 
-const FloorSvg = ({MfloorHandler, SecondfloorHandler, OnefloorHandler, LgfloorHandler, GfloorHandler}) => {
-  // !w-[76%] mt-[1.25rem] !h-[40%]
+const FloorSvg = ({}) => {
+  const dispatch=useDispatch();
+
+  const F1Handler=()=>{
+    dispatch(updateFloor({}))
+
+    const time=setTimeout(() => {
+      dispatch(updateFloor({
+        floor:"First Floor",
+        square:56500,
+        shop:"L1",
+        shopFeet:652.56 ,
+        totalPrice:40347780
+      }))
+      clearTimeout(time)
+    }, 500);
+  }
+
+  const F2Handler=()=>{
+    dispatch(updateFloor({}))
+
+
+    const time=setTimeout(() => {
+      dispatch(updateFloor({
+        floor:"Second Floor",
+        square:66500,
+        shop:"L2",
+        shopFeet:639.31 ,
+        totalPrice: 42514115
+      }))
+      clearTimeout(time)
+    }, 500);
+  }
+
+  const F3Handler=()=>{
+    dispatch(updateFloor({}))
+
+
+    const time=setTimeout(() => {
+      dispatch(updateFloor({
+        floor:"Third Floor",
+        square:66500,
+        shop:"L3",
+        shopFeet:639.31 ,
+        totalPrice: 42514115
+      }))
+      clearTimeout(time)
+    }, 500);
+  }
+
+  const F4Handler=()=>{
+    dispatch(updateFloor({}))
+    
+    const time=setTimeout(() => {
+      dispatch(updateFloor({
+        floor:"Fourth Floor",
+        square:56500,
+        shop:"L4",
+        shopFeet:612.81  ,
+        totalPrice: 40751865
+      }))
+      clearTimeout(time)
+    }, 500);
+  }
 
   return (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.13 345.32" className='mx-auto w-full p-2  h-[70vh] sm:h-fit mb:h-fit'>
   <defs>
@@ -106,12 +170,12 @@ const FloorSvg = ({MfloorHandler, SecondfloorHandler, OnefloorHandler, LgfloorHa
       <polyline className="cls-3" points="336.33 0 335.55 0 330.86 0 320.69 0 320.69 2.74 330.86 2.74 330.86 43.46 329.29 43.46 329.29 46.34 330.86 46.34 330.86 62.18 336.33 62.18 336.33 46.34 336.33 46.15" />
       <polygon className="cls-3" points="0 314.04 0 328.12 0 345.32 5.47 345.32 5.47 328.12 9.78 328.12 9.78 314.43 5.47 314.43 5.47 314.04 5.47 258.9 9.78 258.9 9.78 245.21 5.47 245.21 5.47 141.96 9.78 141.96 9.78 128.28 5.47 128.28 5.47 24.64 10.17 24.64 10.17 16.82 10.17 11.34 0 11.34 0 314.04" />
       <polygon className="cls-3" points="374.66 0 374.66 11.34 369.96 11.34 369.96 24.64 374.66 24.64 374.66 77.43 369.96 77.43 369.96 91.12 374.66 91.12 374.66 197.89 332.03 197.89 332.03 258.9 343.76 258.9 343.76 253.42 337.5 253.42 337.5 203.36 374.66 203.36 374.66 253.42 368.4 253.42 368.4 258.9 374.66 258.9 374.66 310.13 374.66 314.43 369.96 314.43 369.96 322.64 369.96 328.12 374.66 328.12 374.66 345.32 380.13 345.32 380.13 328.12 380.13 310.13 380.13 13.69 380.13 11.34 380.13 0 374.66 0" />
-      <circle className="cls-4 cursor-pointer" cx="40.28" cy="116.15" r="14.08" onClick={OnefloorHandler} />
-       <text className="cls-5 cursor-pointer" transform="translate(37.29 118.93)" onClick={OnefloorHandler} >F1</text>
-      <circle className="cls-4  cursor-pointer" cx="113.8" cy="116.15" r="14.08" onClick={SecondfloorHandler}/>
-      <text className="cls-5 cursor-pointer" transform="translate(109.87 118.93)" onClick={SecondfloorHandler}>F2</text>
-      <circle className="cls-4   cursor-pointer" cx="186.15" cy="116.15" r="14.08"  /><text className="cls-5 cursor-pointer" transform="translate(182.17 118.93)" >F3</text>
-      <circle className="cls-4  cursor-pointer" cx="264.37" cy="116.15" r="14.08" /><text  className="cls-5 cursor-pointer" transform="translate(260.24 118.93)">F4</text>
+      <circle className="cls-4 cursor-pointer" cx="40.28" cy="116.15" r="14.08" onClick={F1Handler} />
+       <text className="cls-5 cursor-pointer" transform="translate(37.29 118.93)" onClick={F1Handler} >F1</text>
+      <circle className="cls-4  cursor-pointer" cx="113.8" cy="116.15" r="14.08" onClick={F2Handler}/>
+      <text className="cls-5 cursor-pointer" transform="translate(109.87 118.93)" onClick={F2Handler}>F2</text>
+      <circle className="cls-4   cursor-pointer" cx="186.15" cy="116.15" r="14.08" onClick={F3Handler}  /><text className="cls-5 cursor-pointer" transform="translate(182.17 118.93)" >F3</text>
+      <circle className="cls-4  cursor-pointer" cx="264.37" cy="116.15" r="14.08"  onClick={F4Handler}/><text  className="cls-5 cursor-pointer" transform="translate(260.24 118.93)">F4</text>
       <g id="Padlock">
         <path className="cls-4" d="M44.5,141.1v-2.57a3.44,3.44,0,1,0-6.87,0v2.57a1.29,1.29,0,0,0-1.29,1.29v5.16a1.29,1.29,0,0,0,1.29,1.29H44.5a1.29,1.29,0,0,0,1.29-1.29v-5.16A1.29,1.29,0,0,0,44.5,141.1Zm-6-2.57a2.58,2.58,0,1,1,5.15,0v2.57H38.49Zm6.44,9a.43.43,0,0,1-.43.43H37.63a.43.43,0,0,1-.43-.43v-5.16a.43.43,0,0,1,.43-.43H44.5a.43.43,0,0,1,.43.43Zm-3.44-2.89v-1a.43.43,0,0,0-.43-.43.43.43,0,0,0-.43.43v1a.86.86,0,1,0,1.29.74A.85.85,0,0,0,41.49,144.66Z" />
       </g>
