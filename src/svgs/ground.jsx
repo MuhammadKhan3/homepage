@@ -1,40 +1,9 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateFloor } from "../redux/homepage/homeslice";
 const Ground=()=>{
     const dispatch=useDispatch();
+    const Groundfloor=useSelector((state)=>state.homeReducer.GroundFloor)
 
-    const Groundfloor=[
-      {
-        floor:"Ground Floor",
-        square: 95000,
-        shop:"G1",
-        shopFeet:652.56 ,
-        totalPrice:61993200
-      },
-      {
-        floor:"Ground Floor",
-        square:95000,
-        shop:"G2",
-        shopFeet:639.31 ,
-        totalPrice: 60734450,
-        sold:true,
-      },
-      {
-        floor:"Ground Floor",
-        square:95000 ,
-        shop:"G3",
-        shopFeet:639.31 ,
-        totalPrice: 60734450
-      },
-      {
-        floor:"Ground Floor",
-        square:95000,
-        shop:"G4",
-        shopFeet:612.81  ,
-        totalPrice: 40751865,
-
-      }
-    ]
 
     const G1Handler=()=>{
       dispatch(updateFloor({}))

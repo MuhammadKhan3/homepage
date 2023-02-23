@@ -1,72 +1,59 @@
 import React from 'react'
 import cross from '../images/cross.png'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateFloor } from '../redux/homepage/homeslice';
 const FloorLevelLable = ({setfloorClicked}) => {
     const navigate=useNavigate();
     const dispatch=useDispatch();
+    const FirstFloor=useSelector(state=>state.homeReducer.FirstFloor);
+    const Lg=useSelector(state=>state.homeReducer.LowerGround);
+    const Mezzanine=useSelector(state=>state.homeReducer.Mezzanine);
+    const GroundFloor=useSelector(state=>state.homeReducer.GroundFloor);
+    const SecondFloor=useSelector(state=>state.homeReducer.SecondFloor)
+
+
+  const findSoldTag=(data)=>{
+      const index=data.findIndex((item)=>item.sold!==true);
+      return data[index];
+  }
 
   const floorHandler=(label)=>{
     dispatch(updateFloor({}))
     if(label==='Lower Ground'){
 
       const time=setTimeout(() => {
-        dispatch(updateFloor({
-          floor:"Lower Ground",
-          square:66500,
-          shop:"L1",
-          shopFeet:652.56 ,
-          totalPrice:43395240
-        }))
+        dispatch(updateFloor(findSoldTag(Lg)))
         clearTimeout(time)
       }, 500);
     }
     else if(label==='Ground Floor'){
+      
       const time=setTimeout(() => {
-        dispatch(updateFloor({
-          floor:"Ground Floor",
-          square:95000,
-          shop:"G1",
-          shopFeet:652.56 ,
-          totalPrice: 61993200
-        }))
+        // findSoldTag()
+        dispatch(updateFloor(findSoldTag(GroundFloor)))
         clearTimeout(time)
       }, 500);
     }
     else if(label==='Mezzanine'){
       const time=setTimeout(() => {
-        dispatch(updateFloor({
-          floor:"Mezzanine",
-          square: 71500,
-          shop:"M1",
-          shopFeet:714.12,
-          totalPrice: 51059580
-        }))
+        
+        dispatch(updateFloor(findSoldTag(Mezzanine)))
+
         clearTimeout(time)
       }, 500);
     }
     else if(label==='First Floor'){
       const time=setTimeout(() => {
-        dispatch(updateFloor({
-          floor:"First Floor",
-          square: 56500 ,
-          shop:"F1",
-          shopFeet:714.12,
-          totalPrice: 40347780
-        }))
+        
+        dispatch(updateFloor(findSoldTag(FirstFloor)))
         clearTimeout(time)
       }, 500);
     }
     else if(label==='Second Floor'){
       const time=setTimeout(() => {
-        dispatch(updateFloor({
-          floor:"Second Floor",
-          square: 56500 ,
-          shop:"F2",
-          shopFeet:714.12,
-          totalPrice: 40347780
-        }))
+        dispatch(updateFloor(findSoldTag(SecondFloor)))
+
         clearTimeout(time)
       }, 500);
     }

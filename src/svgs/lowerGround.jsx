@@ -1,41 +1,13 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateFloor } from '../redux/homepage/homeslice';
 
 const LowerGround = () => {
   const dispatch=useDispatch();
 
-  const Lg=[
-    {
-      floor:"Lower Ground",
-      square:66500,
-      shop:"L1",
-      shopFeet:652.56 ,
-      totalPrice:43395240
-    },
-    {
-      floor:"Lower Ground",
-      square:66500,
-      shop:"L2",
-      shopFeet:639.31 ,
-      totalPrice: 42514115
-    },
-    {
-      floor:"Lower Ground",
-      square:66500,
-      shop:"L3",
-      shopFeet:639.31 ,
-      totalPrice: 42514115
-    },
-    {
-      floor:"Lower Ground",
-      square:66500,
-      shop:"L4",
-      shopFeet:612.81  ,
-      totalPrice: 40751865,
-      sold:true
-    }
-  ]
+  const Lg=useSelector(state=> state.homeReducer.LowerGround)
+
+
   const L1Handler=()=>{
     dispatch(updateFloor({}))
 
@@ -178,9 +150,9 @@ const LowerGround = () => {
       <rect class="cls-3" x="350.41" y="285.36" width="0.39" height="26.2" />
       <path class="cls-3" d="M93.86,287H5.48a.4.4,0,1,1,0-.79H93.86a.78.78,0,1,0-.78-.78.39.39,0,0,1-.39.39.38.38,0,0,1-.39-.39A1.56,1.56,0,1,1,93.86,287Z" />
       <path class="cls-3" d="M374.66,287H263.2a1.57,1.57,0,1,1,0-3.13,1.51,1.51,0,0,1,1.56,1.56.39.39,0,0,1-.78,0,.78.78,0,1,0-.78.78H374.66a.4.4,0,0,1,0,.79Z" />
-      <circle class="cls-4 cursor-pointer" cx="40.28" cy="119.67" r="14.08" onClick={L1Handler} /><text class="cls-5 cursor-pointer" transform="translate(37.55 122.45)">L1</text>
-      <circle class="cls-4 cursor-pointer" cx="113.8" cy="119.67" r="14.08" onClick={L2Handler}/><text class="cls-5 cursor-pointer" transform="translate(110.14 122.45)">L2</text>
-      <circle class="cls-4 cursor-pointer" cx="186.15" cy="119.67" r="14.08" onClick={L3Handler} /><text class="cls-5 cursor-pointer" transform="translate(182.44 122.45)">L3</text>
+      <circle class="cls-4 cursor-pointer" cx="40.28" cy="119.67" r="14.08" onClick={L1Handler} /><text onClick={L1Handler} class="cls-5 cursor-pointer" transform="translate(37.55 122.45)">L1</text>
+      <circle class="cls-4 cursor-pointer" cx="113.8" cy="119.67" r="14.08" onClick={L2Handler} /><text onClick={L2Handler} class="cls-5 cursor-pointer" transform="translate(110.14 122.45)">L2</text>
+      <circle class="cls-4 cursor-pointer" cx="186.15" cy="119.67" r="14.08" onClick={L3Handler}/><text onClick={L3Handler} class="cls-5 cursor-pointer" transform="translate(182.44 122.45)">L3</text>
       <circle class={`cls-4 ${Lg[3]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} cx="298" cy="119.67" r="14.08"  onClick={()=>{!Lg[3]?.sold===true && L4Handler()}}/><text class={`cls-5 ${Lg[3]?.sold==true ? 'cursor-not-allowed' :'cursor-pointer'}`} transform="translate(294.14 122.45)">L4</text>
       <g id="Padlock">
         <path class="cls-4" d="M301.47,144.89v-2.57a3.44,3.44,0,0,0-6.88,0v2.57a1.29,1.29,0,0,0-1.29,1.29v5.16a1.29,1.29,0,0,0,1.29,1.29h6.88a1.28,1.28,0,0,0,1.28-1.29v-5.16A1.28,1.28,0,0,0,301.47,144.89Zm-6-2.57a2.58,2.58,0,0,1,5.16,0v2.57h-5.16Zm6.45,9a.44.44,0,0,1-.43.43h-6.88a.44.44,0,0,1-.43-.43v-5.16a.43.43,0,0,1,.43-.43h6.88a.43.43,0,0,1,.43.43Zm-3.44-2.89v-1a.43.43,0,1,0-.86,0v1a.85.85,0,0,0-.43.74.86.86,0,1,0,1.29-.74Z" />

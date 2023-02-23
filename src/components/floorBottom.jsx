@@ -7,6 +7,7 @@ import Ground from '../svgs/ground';
 import LowerGround from '../svgs/lowerGround';
 import MFloor from '../svgs/mezzanine';
 import Mezzannine from '../svgs/mezzanine';
+import SecondFloorSvg from '../svgs/secondsvg';
 
 const FloorBottom = ({floorData,setfloorData,MfloorHandler, SecondfloorHandler, OnefloorHandler, LgfloorHandler, GfloorHandler}) => {
 
@@ -58,8 +59,10 @@ const FloorBottom = ({floorData,setfloorData,MfloorHandler, SecondfloorHandler, 
           <LowerGround/>
          : floorData.floor==='Mezzanine' ?
          <Mezzannine/>
-         :
+         : floorData.floor==='First Floor' ?
          <FloorSvg MfloorHandler={MfloorHandler} SecondfloorHandler={SecondfloorHandler} OnefloorHandler={OnefloorHandler} LgfloorHandler={LgfloorHandler} GfloorHandler={GfloorHandler}/>
+         :
+         <SecondFloorSvg/>
          }
        </FadeIn>
     </div>
